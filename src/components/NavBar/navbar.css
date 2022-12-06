@@ -1,0 +1,26 @@
+.barra-de-nav{
+    margin-right: 1rem;
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.categorias{
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding-right: 0.2rem;
+    gap: 1rem;
+    align-items: center;
+}
+
+.li{
+    text-decoration: none;
+}
+
+.carrito{
+    display: flex;
+    align-items: center;
+}
