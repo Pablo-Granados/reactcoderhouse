@@ -4,8 +4,6 @@ import Header from './components/Header/Header';
 import Flex from './components/Flex/Flex';
 import Item from './components/ItemListContainer/Item';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import NavBar from './components/NavBar/NavBar';
-
 
 
 // JSX //
@@ -28,7 +26,7 @@ function App() {
           <div className="fondo">
             <img className="fondoIMG"
               onClick={handleImageClick}
-              src="https://www.patterns.dev/img/reactjs/react-logo@3x.svg"
+              src="https://cloudfront-us-east-1.images.arcpublishing.com/infobae/CAXKFDMCYRGXDEM65YCV6X2PYI.png"
               alt="logo react"
             />
           </div>
@@ -40,7 +38,6 @@ function App() {
           >
           </a>
           <Flex className="botones">
-            <h2>Holis</h2>
             <Button color="red" text="Black">Soy un children</Button>
             <Button color="darkgreen" text="Aprender React" />
             <Button text="Mas propiedades" color="purple" size="64px" />
