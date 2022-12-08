@@ -1,20 +1,16 @@
+.navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start !important;
+}
+
+.navbar-collapse{
+    margin-left: 1rem;
+}
+
 .lupa {
     width: auto;
     margin: 0 !important;
-}
-
-.categorias {
-    margin-left: 1rem;
-    display: flex;
-    flex-direction: row;
-    list-style: none;
-    padding-right: 0.2rem;
-    gap: 1rem;
-    /* align-items: center; */
-}
-
-.li {
-    text-decoration: none;
 }
 
 .carrito {
@@ -31,8 +27,3 @@
     }
 }
 
-.navbar {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start !important;
-}
