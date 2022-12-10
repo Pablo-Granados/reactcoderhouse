@@ -1,0 +1,38 @@
+.contador-container{
+    width: 100%;
+}
+.contador{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.contador-style{
+    padding: 0.5em 1em;
+    color: whitesmoke !important;
+    max-width: 15em;
+    background-color: #1b71c8;
+    border-radius: 0.4em;
+    border: none;
+    margin: 0.5em 1.5em;
+    cursor: pointer;
+    font-weight: 600 !important;
+
+
+}
+
+.contador-style:disabled{
+    background-color: grey;
+    cursor: auto;
+}
+
+.agregar-style{
+    padding: 0.5em 0.5em;
+    color: whitesmoke !important;
+    background-color: #1b71c8;
+    border-radius: 0.4em;
+    border: none;
+    cursor: pointer;
+    font-weight: 600 !important;
+}
