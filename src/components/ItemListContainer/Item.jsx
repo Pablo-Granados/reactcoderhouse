@@ -19,7 +19,7 @@ function Item({ title, price, description, img, alt, stock }) {
             </div>
             <div className="card-detail">
                 <h2>{title}</h2>
-                <h4>{price} goles</h4>
+                <h4>$ {price}</h4>
                 <p>{description}</p>
             </div>
             <div className="card-count">

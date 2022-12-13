@@ -1,16 +1,12 @@
 import './App.css';
 import Header from './components/Header/Header';
-import Flex from './components/Flex/Flex';
-import Item from './components/ItemListContainer/Item';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import Portada from './components/Portada/Portada';
 
 
 // JSX //
 function App() {
 
-  function handleImageClick() {
-    console.log("Click en la imagen")
-  }
 
   return (
     <>
@@ -18,14 +14,11 @@ function App() {
         <Header />
         {/*Soy un comentario de JSX*/}
         <div className="App-header">
-          <div className="fondo">
-            <img className="fondoIMG"
-              onClick={handleImageClick}
-              src="https://images.losandes.com.ar/resizer/5QdOTebiuhsTZRMbHdAndLbvqRk=/980x640/smart/cloudfront-us-east-1.images.arcpublishing.com/grupoclarin/R5B764D2LRB4VGDN7RZVC4SLLE.jpg"
-              alt="logo react"
-            />
-          </div>
-          <ItemListContainer/>
+          <Portada
+            titulo="La coctelera"
+            subtitulo="Las mejores recetas para tus tragos">
+          </Portada>
+          <ItemListContainer />
         </div>
       </div>
     </>

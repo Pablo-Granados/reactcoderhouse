@@ -1,9 +1,9 @@
 //----------BACK END-----------
-function APICall(){
-    return new Promise ((resolve,reject) => {
+function APICall() {
+    return new Promise((resolve, reject) => {
         setTimeout(() => {
             console.log("Llamado a API resuelto")
-            resolve("Error en la API")
+            reject("Error en la API")
         }, 2000);
     })
 }
@@ -11,11 +11,15 @@ function APICall(){
 //-----------FRONT END----------
 console.log("APP iniciada");
 
-async function leerDatos (){
+async function leerDatos() {
     // APICall().then( respuesta => hacerAlgo(respuesta))
+    try {
+        let respuesta = await APICall();
+        console.log(respuesta)
+    } catch (error) {
+        console.error("Error en try/catch")
+    }
 
-    let respuesta = await APICall();
-    console.log( respuesta)
 
 }
 
