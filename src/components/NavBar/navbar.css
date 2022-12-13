@@ -4,14 +4,32 @@
     align-items: flex-start !important;
 }
 
-.navbar-collapse{
+.navbar-nav{
+    display: flex;
+    align-items: flex-start;
+}
+
+.navbar-collapse {
     margin-left: 1rem;
 }
 
 .lupa {
     width: auto;
     margin: 0 !important;
+    background-color: #1b71c8 !important;
+    color: whitesmoke !important;
 }
+
+.logo {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .logo {
+        display: flex;
+    }
+}
+
 
 .carrito {
     position: static;
@@ -19,6 +37,7 @@
     right: 0;
     display: flex;
     font-size: x-large;
+    color: rgb(84, 84, 84);
 }
 
 @media (min-width: 240px) {
@@ -26,4 +45,3 @@
         width: 40%;
     }
 }
-

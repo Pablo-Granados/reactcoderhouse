@@ -1,12 +1,21 @@
-import "./item.css"
+import React, { useState, useEffect } from "react";
+import getItems from "../../services/mockService";
+import "./item.css";
+import ItemList from "./ItemList";
 
-function ItemListContainer({titulo, subtitulo}) {
+function ItemListContainer() {
+    console.log("%cRender/Update", "color: blue")
+
+    const [productos, setProductos] = useState([]);
+
+    useEffect(() => {
+        getItems().then((respuesta) => setProductos(respuesta));
+    }, [])
+
+
     return (
-        <div className="contenedor">
-            <h2>{titulo}</h2>
-            <h4>{subtitulo}</h4>
-        </div>
-    )
+        <ItemList productos={productos} />
+    );
 }
 
 export default ItemListContainer

@@ -1,26 +1,16 @@
-// import { faL } from "@fortawesome/free-solid-svg-icons";
-import React, { useState } from "react"
+import React from "react"
 import Contador from "../Contador/Contador";
+import FavButton from "../FavButton/FavButton";
 
 import "./item.css"
 
 function Item({ title, price, description, img, alt, stock }) {
 
-    const [isFavorite, setIsFavorite] = useState(false);
-
-    function handleFavorite() {
-        setIsFavorite(!isFavorite)
-        // isFavorite === true ? setIsFavorite(false) : setIsFavorite(true);
-    }
-
-
     return (
         <div className="card">
-            <button
-                onClick={handleFavorite}
-                className={isFavorite ? "card-favicon favorite" : "card-favicon"}>
-                ♥
-            </button>
+            <FavButton 
+            boton={"♥"}
+            />
             <div className="card-img">
                 <img
                     src={img}

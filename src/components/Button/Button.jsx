@@ -1,5 +1,5 @@
-import "./button.css";
 import { useState } from "react";
+import "./button.css";
 
 function Button(props) {
   const [colorButton, setColorButton] = useState(props.color)
