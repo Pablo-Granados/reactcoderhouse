@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./button.css";
 
 function Button(props) {
-  const [colorButton, setColorButton] = useState(props.color)
+  const [colorButton, setColorButton] = useState(props.color);
   const styleBtn = { backgroundColor: colorButton };
 
 function changeColor(){
@@ -10,7 +10,7 @@ function changeColor(){
 }
 
   return (
-    <button onClick={changeColor} style={styleBtn} className="btn">
+    <button onClick={props.onButtonTouch} style={styleBtn} className={props.className} disabled={props.disabled}>
       {props.children || props.text}
     </button>
   );

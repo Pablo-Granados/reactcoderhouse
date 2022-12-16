@@ -8,6 +8,18 @@
     width: 100%;
 }
 
+@media (min-width: 768px) {
+    .fondoIMG {
+        width: 60%;
+        display: flex;
+    }
+}
+
 .titulo {
     font-family: 'Kanit', sans-serif;
+    font-size: x-large;
+}
+
+.subtitulo{
+    font-size: medium;
 }

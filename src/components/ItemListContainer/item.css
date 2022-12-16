@@ -6,37 +6,166 @@
 .card{
     position: relative;
     margin: 0.5rem;
-    /* margin: 0.625rem 0.93rem; */
-    min-height: 32rem;
-    width: 17rem;
-    /* height: 100%; */
+    width: 10rem;
+    height: 12rem !important;
     border-radius: 0.75rem !important;
     color: black;
-    box-shadow: 0.3rem 0.3rem 0.30rem rgb(0, 0, 0);
-    background-color: #fff;
+    box-shadow: 0.35rem 0.35rem 0.35rem rgb(175, 197, 226);
+    background-color: whitesmoke;
     overflow: hidden;  
-    transition: all 0.20s ease-in;
+    transition: all 0.35s ease-in;
     display: flex !important;
-    justify-content: space-between;
+    justify-content: flex-start;
     /* cursor: pointer; */
   }
   
   .card-img{
     display: flex;
     justify-content: center;
-    margin-top: 0.5rem;
-    height: 280px;
+    margin-top: 0.25rem;
+    height: 50%;
   }
   .card-img img{
     border-radius: 0.75rem !important;
-
+    height: 100%;
     width: 95%;
     object-fit: cover;
   }
   
   .card:hover{
-    box-shadow: 0px 4px 12px 2px rgba(0,0,0,0.25);
-    transform: translateY(-6px);
+    box-shadow: 0.35rem 0.35rem 0.35rem rgb(175, 197, 226);    transform: scale(1, 1.05);
+    transform-origin: top;
+  }
+  
+  .card-detail{
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 0.2rem;
+    height: 50%;
+  }
+
+  .articulo{
+    font-size: medium;
+    font-family: 'Inconsolata', monospace;
+    height: 40%;
+  }
+
+  .priceTag{
+    color: #2fb70a;
+    font-weight: bold;
+    font-size: large;
+    height: 20%;
+  }
+
+  .descripcion{
+    display: none;
+    font-size: small;
+    text-align: center !important;
+    height: 40%;
+  }
+
+  .ver{
+    display: flex;
+  }
+
+  .ver:active{
+    display: none;
+  }
+
+  .card:hover .descripcion{
+    display: block;
+    text-align: center !important;
+  }
+  
+  .card-favicon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: xx-large;
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    top: 0;
+    right: 0;
+    border-radius:  50%;
+    border: none;
+    cursor: pointer;
+    background-color: rgb(219, 219, 219);
+    color: #8c8c8e;
+  }
+  
+  .card-favicon.favorite{
+    /* display: block; */
+    background-color: rgb(223, 117, 84);
+    color: white;
+  }
+  
+  /* small{
+    color: #8c8c8e;
+  } */
+
+  .closeBtn{
+    margin: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: x-large;
+      position: absolute;
+      width: 2rem;
+      height: 2rem;
+      top: 0;
+      right: 0;
+      border: solid 2px #1b71c8;
+      cursor: pointer;
+      background-color: #fff;
+      color: #1b71c8;
+    }
+
+    .closeBtn div{
+      display: flex;
+      height: 100%;
+      align-items: center;
+    }
+
+@media (min-width:768px) {
+  
+
+.tarjetas{
+  margin-top: 1rem;
+}
+.card{
+    position: relative;
+    margin: 0.5rem;
+    width: 15rem;
+    height: 15rem !important;
+    border-radius: 0.75rem !important;
+    color: black;
+    box-shadow: 0.35rem 0.35rem 0.35rem rgb(175, 197, 226);
+    background-color: whitesmoke;
+    overflow: hidden;  
+    transition: all 0.20s ease-in;
+    display: flex !important;
+    justify-content: flex-start;
+    /* cursor: pointer; */
+  }
+  
+  .card-img{
+    display: flex;
+    justify-content: center;
+    margin-top: 0.25rem;
+    height: 50%;
+  }
+  .card-img img{
+    border-radius: 0.75rem !important;
+    height: 100%;
+    width: 95%;
+    object-fit: cover;
+  }
+  
+  .card:hover{
+    box-shadow: 0.35rem 0.35rem 0.35rem rgb(175, 197, 226);    
+    transform:  scale(1, 1.1);
+    transform-origin: top;
   }
   
   .card-detail{
@@ -47,16 +176,34 @@
     justify-content: space-between;
   }
 
-  .card-detail h2{
-    font-size: x-large;
+  .titulo{
+    font-size: larger;
   }
-  
-  .card:hover .card-favicon{
+
+  .priceTag{
+    color: #2fb70a;
+    font-weight: bold;
+    font-size: large;
+  }
+
+  .descripcion{
+    display: none;
+    text-align: center !important;
+
+  }
+
+  .card:hover .descripcion{
     display: block;
+    text-align: center !important;
+
+
   }
   
   .card-favicon{
-    display: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: xx-large;
     position: absolute;
     width: 2rem;
     height: 2rem;
@@ -64,14 +211,13 @@
     right: 0;
     border-radius:  50%;
     border: none;
-    margin: 5px 15px;
     cursor: pointer;
     background-color: rgb(219, 219, 219);
     color: #8c8c8e;
   }
   
   .card-favicon.favorite{
-    display: block;
+    /* display: block; */
     background-color: rgb(223, 117, 84);
     color: white;
   }
@@ -80,11 +226,10 @@
     color: #8c8c8e;
   }
   
-  .priceTag{
-    color: #444444;
-    font-weight: bold;
-  }
+
   
   .offerTag{
     color: #21b276
   }
+
+}

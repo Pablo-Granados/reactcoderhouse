@@ -1,33 +1,34 @@
+import Button from "../Button/Button";
 import React, { useState } from 'react';
 import "./contador.css"
+import productos from "../../data/productos";
 
-function Contador(props) {
+
+function Contador({stock, onAddToCart}) {
 
     const [count, setCount] = useState(1);
 
     function handleSuma() {
-        if (count < props.stock) setCount(count + 1);
+        if (count < stock) setCount(count + 1);
       }
     
       function handleResta() {
+        if (count > 1)
         setCount(count - 1);
       }
 
-      function onAddToCart(){
-        console.log("Agregado al carrito")
-      }
   return (
     <div className="contador-container">
       <div className="contador">
-        <button className="contador-style" disabled={count === 1} onClick={handleResta}>
+        <Button onButtonTouch={handleResta} className="contador-style" disabled={count === 1}>
           -
-        </button>
+        </Button>
         <h3>{count}</h3>
-        <button className="contador-style" disabled={count === props.stock} onClick={handleSuma}>
+        <Button onButtonTouch={handleSuma} className="contador-style" disabled={count === stock} >
           +
-        </button>
+        </Button>
       </div>
-      <button className="agregar-style" onClick={onAddToCart}>Agregar al carrito</button>
+      <Button className="agregar-style" onButtonTouch={()=>onAddToCart(count)} >Agregar al carrito</Button>
     </div>
   )
 }

@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMartiniGlassCitrus, faMagnifyingGlass, faChampagneGlasses, faWineGlass, faBeerMugEmpty, faGlassWhiskey, faToggleOn } from "@fortawesome/free-solid-svg-icons";
 import CartWidget from '../NavBar/CartWidget'
+import { Link } from "react-router-dom";
 
 function Ejemplo() {
     return (
@@ -11,7 +12,7 @@ function Ejemplo() {
                 </button>
 
 
-                <a className="navbar-brand ms-0 logo" href="#"><FontAwesomeIcon icon={faChampagneGlasses} /></a>
+                <Link className="navbar-brand ms-0 logo" to="/"><FontAwesomeIcon icon={faChampagneGlasses} /></Link>
                 <form className="d-flex" role="search">
                     <input className="form-control me-1" type="search" placeholder="Buscar..." aria-label="Search" />
                     <button className="btn btn-outline lupa" type="submit" title="Buscar"><FontAwesomeIcon icon={faMagnifyingGlass} /></button>
@@ -21,19 +22,19 @@ function Ejemplo() {
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                     <li className="nav-item">
-                        <a className="nav-link active" aria-current="page" href="#">La coctelera</a>
+                        <Link className="nav-link active inicio" aria-current="page" to="/">La coctelera</Link>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Vinos y espumantes <FontAwesomeIcon icon={faWineGlass}/></a>
+                        <Link className="nav-link" to="/category/vinos">Vinos y espumantes <FontAwesomeIcon icon={faWineGlass}/></Link>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Cervezas <FontAwesomeIcon icon={faBeerMugEmpty}/></a>
+                        <Link className="nav-link" to="/category/cervezas">Cervezas <FontAwesomeIcon icon={faBeerMugEmpty}/></Link>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Destilados <FontAwesomeIcon icon={faMartiniGlassCitrus}/></a>
+                        <Link className="nav-link" to="/category/destilados">Destilados<FontAwesomeIcon icon={faMartiniGlassCitrus}/></Link>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Aperitivos <FontAwesomeIcon icon={faGlassWhiskey}/></a>
+                        <Link className="nav-link" to="/category/aperitivos">Aperitivos<FontAwesomeIcon icon={faGlassWhiskey}/></Link>
                     </li>
                 </ul>
             </div>
