@@ -97,12 +97,12 @@
     cursor: pointer;
     background-color: rgba(183, 174, 174, 0.836) !important;
     color: #8c8c8e !important;
-    font-size: x-large !important;
+    font-size: large !important;
   }
   
   .card-favicon.favorite{
     /* display: block; */
-    background-color: rgb(223, 117, 84) !important;
+    background-color: rgb(231, 187, 8) !important;
     color: white !important;
   }
   
@@ -232,7 +232,7 @@
   
   .card-favicon.favorite{
     display: flex;
-    background-color: rgb(223, 117, 84) !important;
+    background-color: rgb(231, 187, 8) !important;
     color: white !important;
   }
   
