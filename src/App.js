@@ -1,28 +1,39 @@
 import './App.css';
 import Header from './components/Header/Header';
-import ItemDetail from './components/ItemDetailContainer/ItemDetail';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import Portada from './components/Portada/Portada';
-import Contacto from "./components/pages/Contacto"
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import CartWidget from './components/NavBar/CartWidget';
+import Carrito from './components/Carrito/Carrito';
+import { createContext } from 'react';
+import Contacto from './components/pages/Contacto';
+import { CartContexProvider } from './storage/cartContext';
+
+// inicializar contexto
+const contexto = createContext([]);
+//extraer provider
+const Provider = contexto.Provider;
+//crear value para provider
+
+
+
 // JSX //
 function App() {
 
 
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Header />
-        <Routes>
-        <Route path="/" element={ <ItemListContainer />}></Route>
-        <Route path="/category/:categoryID" element={ <ItemListContainer />}></Route>
+    <CartContexProvider>
+      <BrowserRouter>
+        <div className="App">
+          <Header />
+          <Routes>
+            <Route path="/" element={<ItemListContainer />}></Route>
+            <Route path="/category/:categoryID" element={<ItemListContainer />}></Route>
+            <Route path="/item/:itemID" element={<ItemDetailContainer />}></Route>
+            <Route path="/contacto" element={<Contacto />}></Route>
+            <Route path="/carrito" element={<Carrito />}></Route>
 
-        <Route path="/item/:itemID" element={ <ItemDetailContainer />}></Route>
-        <Route path="/carrito" element={ <ItemDetailContainer />}></Route>
-        </Routes>
-        {/*Soy un comentario de JSX
+          </Routes>
+          {/*Soy un comentario de JSX
          <div className="App-header">
           <Portada
             titulo="La coctelera"
@@ -31,9 +42,11 @@ function App() {
           {/* <ItemListContainer />
           <ItemDetail/>
         </div> */}
-      </div>
+        </div>
       </BrowserRouter>
+    </CartContexProvider>
   );
 }
 
+export {contexto}
 export default App;

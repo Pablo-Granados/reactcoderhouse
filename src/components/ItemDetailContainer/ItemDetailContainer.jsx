@@ -4,10 +4,14 @@ import Contador from '../Contador/Contador';
 import "./itemDetail.css"
 import { Link, useParams } from 'react-router-dom';
 import CloseButton from '../FavButton/CloseButton';
+import { useContext } from 'react';
+import { cartContex } from '../../storage/cartContext';
 
 function ItemDetailContainer() {
   const [producto, setProducto] = useState({});
-  const [CountInCart, setCountInCart] = useState(0)
+  const [CountInCart, setCountInCart] = useState(0);
+
+  const {agregarAlCarrito} = useContext(cartContex)
 
   let { itemID } = useParams();
 
@@ -20,7 +24,8 @@ function ItemDetailContainer() {
 
   function handleAddToCart(count){
     setCountInCart(count);
-    console.log("compraste: ", count, "unidad/es de ", producto.title)
+    agregarAlCarrito(producto, count);
+    console.log("Agregaste: ", count, "unidad/es de ", producto.title, " al carrito.")
   }
 
 

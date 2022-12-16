@@ -33,7 +33,8 @@
   }
   
   .card:hover{
-    box-shadow: 0.35rem 0.35rem 0.35rem rgb(175, 197, 226);    transform: scale(1, 1.05);
+    box-shadow: 0.35rem 0.35rem 0.35rem rgb(175, 197, 226);    
+    transform: scale(1, 1.03);
     transform-origin: top;
   }
   
@@ -90,14 +91,15 @@
     border-radius:  50%;
     border: none;
     cursor: pointer;
-    background-color: rgb(219, 219, 219);
-    color: #8c8c8e;
+    background-color: rgba(183, 174, 174, 0.836) !important;
+    color: #8c8c8e !important;
+    font-size: x-large !important;
   }
   
   .card-favicon.favorite{
     /* display: block; */
-    background-color: rgb(223, 117, 84);
-    color: white;
+    background-color: rgb(223, 117, 84) !important;
+    color: white !important;
   }
   
   /* small{
@@ -135,7 +137,7 @@
 }
 .card{
     position: relative;
-    margin: 0.5rem;
+    margin: 0.6rem;
     width: 15rem;
     height: 15rem !important;
     border-radius: 0.75rem !important;
@@ -164,7 +166,7 @@
   
   .card:hover{
     box-shadow: 0.35rem 0.35rem 0.35rem rgb(175, 197, 226);    
-    transform:  scale(1, 1.1);
+    transform:  scale(1, 1.05);
     transform-origin: top;
   }
   
@@ -212,14 +214,15 @@
     border-radius:  50%;
     border: none;
     cursor: pointer;
-    background-color: rgb(219, 219, 219);
-    color: #8c8c8e;
+    background-color: rgba(183, 174, 174, 0.836) !important;
+    color: #8c8c8e !important;
+    font-size: xx-large !important;
   }
   
   .card-favicon.favorite{
-    /* display: block; */
-    background-color: rgb(223, 117, 84);
-    color: white;
+    display: flex;
+    background-color: rgb(223, 117, 84) !important;
+    color: white !important;
   }
   
   small{
