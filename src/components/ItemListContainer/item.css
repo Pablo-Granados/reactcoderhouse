@@ -65,6 +65,10 @@
     height: 40%;
   }
 
+  .card-count{
+    display: none;
+  }
+
   .ver{
     display: flex;
   }
@@ -191,14 +195,20 @@
   .descripcion{
     display: none;
     text-align: center !important;
+  }
 
+  .card-count{
+    display: none;
   }
 
   .card:hover .descripcion{
     display: block;
     text-align: center !important;
+  }
 
-
+  .card:hover .card-count{
+    display: block;
+    text-align: center !important;
   }
   
   .card-favicon{

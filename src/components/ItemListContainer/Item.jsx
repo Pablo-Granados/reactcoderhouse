@@ -29,9 +29,9 @@ function Item({ title, price, description, img, alt, stock, id }) {
                 <h4 className="priceTag">$ {price}</h4>
                 <p className="descripcion">{description}</p>
             </div>
-            {/* <div className="card-count">
+            <div className="card-count">
                 <Contador stock={stock} />
-            </div> */}
+            </div>
         </div>
     )
 }

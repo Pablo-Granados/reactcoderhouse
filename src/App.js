@@ -7,6 +7,8 @@ import Carrito from './components/Carrito/Carrito';
 import { createContext } from 'react';
 import Contacto from './components/pages/Contacto';
 import { CartContexProvider } from './storage/cartContext';
+import InicioAPP from './components/InicioAPP/InicioAPP';
+import Portada from './components/Portada/Portada';
 
 // inicializar contexto
 const contexto = createContext([]);
@@ -26,8 +28,8 @@ function App() {
         <div className="App">
           <Header />
           <Routes>
-            <Route path="/" element={<ItemListContainer />}></Route>
-            <Route path="/category/:categoryID" element={<ItemListContainer />}></Route>
+            <Route path="/" element={<InicioAPP />}></Route>
+            <Route path="/category/:categoryID" element={<InicioAPP/>}></Route>
             <Route path="/item/:itemID" element={<ItemDetailContainer />}></Route>
             <Route path="/contacto" element={<Contacto />}></Route>
             <Route path="/carrito" element={<Carrito />}></Route>
