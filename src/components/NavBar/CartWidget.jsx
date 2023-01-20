@@ -6,10 +6,13 @@ import { cartContex } from "../../storage/cartContext";
 
 function CartWidget() {
   const contexto = useContext(cartContex);
+  const condicion = contexto.totalItemsEnCarritofn() > 0;
 
   return (
     <div className="carrito">{<Link to="/carrito"><FontAwesomeIcon icon={faCartShopping}/></Link>}
-    <span>{contexto.totalItemsEnCarritofn()}</span>
+    {
+      condicion && <span>{contexto.totalItemsEnCarritofn()}</span>
+    }
     </div>
   )
 }

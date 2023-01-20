@@ -1,5 +1,4 @@
-import React, { useState} from 'react';
-import { createContext } from 'react';
+import React, { useState, createContext} from 'react';
 
 //1- inicializar contexto
 const cartContex = createContext({ carrito: []});
@@ -40,6 +39,8 @@ function CartContexProvider(props){
         carrito.forEach(item => totalItemsEnCarrito += item.count);
         return totalItemsEnCarrito
     }
+
+    function removeItem(id){}
 
     
 
