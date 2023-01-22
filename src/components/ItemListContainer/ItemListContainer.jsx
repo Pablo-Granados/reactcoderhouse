@@ -3,10 +3,11 @@ import getItems, { getItemsCategory } from "../../services/mockService";
 import "./item.css";
 import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
-import { cartContex } from "../../storage/cartContext";
+import Loader from "../Loader/Loader";
 
 function ItemListContainer() {
     const [productos, setProductos] = useState([]);
+    const [isLoading, setIsLoading] = useState (true);
     const categoryID = useParams().categoryID;
     
 
@@ -16,15 +17,23 @@ function ItemListContainer() {
             getItems()
             .then((respuesta) => {
                 setProductos(respuesta);
+                setIsLoading (false);
             })
             .catch((error) => console.error(error))
         }else{
             getItemsCategory(categoryID)
-            .then((respuestaFiltrada) => setProductos(respuestaFiltrada))
+            .then((respuestaFiltrada) => {
+                setProductos(respuestaFiltrada);
+                setIsLoading (false);
+            })
             .catch((errorMsg) => alert(errorMsg))
         }
 
     }, [categoryID ])
+
+    if (isLoading) {
+        return <Loader />
+    }
 
 
     return (

@@ -52,10 +52,14 @@
   }
 
   .priceTag{
-    color: #2fb70a;
+    /* color: #2fb70a; */
     font-weight: bold;
     font-size: large;
     height: 20%;
+  }
+
+  .priceTag small{
+    margin-left: 0.4rem;
   }
 
   .descripcion{
@@ -133,6 +137,18 @@
       align-items: center;
     }
 
+    .offerTag{
+      color: #0dac0d;
+    }
+
+    .item-new{
+      background-color: #579fec !important;
+    }
+
+    .offerTag small{
+      margin-left: 0.4rem;
+    }
+
 @media (min-width:768px) {
   
 
@@ -188,7 +204,7 @@
   }
 
   .priceTag{
-    color: #2fb70a;
+    /* color: #2fb70a; */
     font-weight: bold;
     font-size: large;
   }
@@ -238,12 +254,6 @@
   
   small{
     color: #8c8c8e;
-  }
-  
-
-  
-  .offerTag{
-    color: #21b276
   }
 
 }

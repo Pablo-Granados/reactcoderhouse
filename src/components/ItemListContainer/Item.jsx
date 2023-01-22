@@ -7,12 +7,15 @@ import FavButton from "../FavButton/FavButton";
 
 import "./item.css"
 
-function Item({ title, price, description, img, alt, stock, id }) {
+function Item({ title, newProduct, price, description, img, alt, stock, id, discount }) {
 
-    let urlDetail = `/item/${id}`
+    let urlDetail = `/item/${id}`;
+
+    let classNamePrice = discount? "offerTag" : "priceTag"
+    let classNameItem = `card ${newProduct && "item-new"}`;
 
     return (
-        <div className="card">
+        <div className={classNameItem}>
             <FavButton
                 boton={<FontAwesomeIcon icon={faStar}/>}
             />
@@ -28,7 +31,10 @@ function Item({ title, price, description, img, alt, stock, id }) {
             </div>
             <div className="card-detail">
                 <h2 className="articulo">{title}</h2>
-                <h4 className="priceTag">$ {price}</h4>
+                <h4 className= {classNamePrice}>
+                    $ {price}
+                    {discount && <small>{discount} % off</small>}
+                    </h4>
                 <p className="descripcion">{description}</p>
             </div>
             <div className="card-count">

@@ -4,12 +4,13 @@ function getItems(){
     return new Promise ((resolve) => {
         setTimeout(() => {
             resolve(productos)
-        }, 500);
+        }, 1500);
     })
 }
 
 export function getItemsCategory(categoryID){
     return new Promise( (resolve, reject) => {
+        setTimeout(() => {
         let itemsFound = productos.filter(item =>{
             return(item.category === categoryID)
         });
@@ -17,8 +18,7 @@ export function getItemsCategory(categoryID){
         resolve(itemsFound);
         else reject ("No hay productos para mostrar. Prueba en otra sección.")
 
-    })
-}
+    }, 1400)})}
 
 
 export function getSingleItems(itemID) {

@@ -8,10 +8,12 @@ const productos = [
         img: "https://t1.rg.ltmcdn.com/es/posts/3/7/0/dry_martini_41073_600.webp",
         alt: "Dry Martini",
         stock: 7,
+        discount: 35
     },
     {
         id: 2,
         price: 550,
+        newProduct: true,
         title: "Ron Weasley",
         description: "Ron - Cola - Limón",
         category: "destilados",
@@ -24,6 +26,7 @@ const productos = [
         price: 600,
         title: "Fernando Burlando",
         description: "Fernet & Cola",
+        newProduct: true,
         category: "aperitivos",
         img: "https://cloudfront-us-east-1.images.arcpublishing.com/metroworldnews/2ZRX554SKZCDJGOJNM66SMV6RA.jpg",
         alt: "Fernet con cola",

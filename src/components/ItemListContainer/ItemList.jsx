@@ -1,4 +1,5 @@
 import React from 'react'
+import productos from '../../data/productos'
 import Flex from '../Flex/Flex'
 import Item from './Item'
 
@@ -16,6 +17,8 @@ function ItemList(props) {
             img={item.img}
             alt={item.alt}
             stock={item.stock}
+            newProduct={item.newProduct}
+            discount={item.discount}
         />
     ))}
 </Flex>  )

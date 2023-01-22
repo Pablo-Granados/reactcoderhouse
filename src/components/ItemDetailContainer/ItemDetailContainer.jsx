@@ -3,6 +3,7 @@ import { getSingleItems } from '../../services/mockService';
 import { useParams } from 'react-router-dom';
 import "./itemDetail.css"
 import ItemDetail from './ItemDetail';
+import Loader from '../Loader/Loader';
 
 function ItemDetailContainer() {
 
@@ -23,7 +24,8 @@ function ItemDetailContainer() {
 
   return (
     <>
-      {isLoading ? <h3>Cargando . . . </h3> : <ItemDetail producto={producto} />}
+    <h2>Detalles del producto</h2>
+      {isLoading ? <Loader /> : <ItemDetail producto={producto} />}
     </>
   );
 }
