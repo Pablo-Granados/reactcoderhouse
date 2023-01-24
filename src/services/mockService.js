@@ -21,14 +21,14 @@ export function getItemsCategory(categoryID){
     }, 1400)})}
 
 
-export function getSingleItems(itemID) {
-    return new Promise ((resolve, reject) => {
-        setTimeout(() => {
-            let itemFound =productos.find((itemInArray) => itemInArray.id === parseInt(itemID));
-            if (itemFound) resolve(itemFound);
-            else reject ("Item no encontrado")
-        }, 500);
-    });
-}
+// export function getSingleItems(itemID) {
+//     return new Promise ((resolve, reject) => {
+//         setTimeout(() => {
+//             let itemFound =productos.find((itemInArray) => itemInArray.id === parseInt(itemID));
+//             if (itemFound) resolve(itemFound);
+//             else reject ("Item no encontrado")
+//         }, 500);
+//     });
+// }
 
 export default getItems

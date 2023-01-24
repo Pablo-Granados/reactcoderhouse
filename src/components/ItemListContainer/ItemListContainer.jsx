@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import getItems, { getItemsCategory } from "../../services/mockService";
+import { getItems, getItemsCategory } from "../../services/firebase";
 import "./item.css";
 import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";

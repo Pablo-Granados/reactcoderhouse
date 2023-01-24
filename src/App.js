@@ -1,6 +1,5 @@
 import './App.css';
 import Header from './components/Header/Header';
-import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Carrito from './components/Carrito/Carrito';
@@ -8,7 +7,8 @@ import { createContext } from 'react';
 import Contacto from './components/pages/Contacto';
 import { CartContexProvider } from './storage/cartContext';
 import InicioAPP from './components/InicioAPP/InicioAPP';
-import Portada from './components/Portada/Portada';
+
+
 
 // inicializar contexto
 const contexto = createContext([]);

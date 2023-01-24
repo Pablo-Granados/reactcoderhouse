@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { getSingleItems } from '../../services/mockService';
+import { getSingleItems } from '../../services/firebase';
 import Contador from '../Contador/Contador';
 import { Link, useParams } from 'react-router-dom';
 import CloseButton from '../FavButton/CloseButton';
@@ -46,13 +46,17 @@ function ItemDetail() {
       <h4 className="priceTag">$ {producto.price}</h4>
       <p>{producto.description}</p>
     </div>
-    <Contador stock={producto.stock} onAddToCart={handleAddToCart}> </Contador>
-    <button onClick={() =>removeItem(producto.id)} />
+    {
+      CountInCart?
+      <Link to="/carrito">Ir al carrito</Link>
+      :
+      <Contador stock={producto.stock} onAddToCart={handleAddToCart}> </Contador>
+    }
 
-    <Link to="/carrito">Ir al carrito</Link>
 
   </div>
   )
 }
+{/* <button onClick={() =>removeItem(producto.id)} /> */}
 
 export default ItemDetail

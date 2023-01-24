@@ -8,6 +8,8 @@ function CartWidget() {
   const contexto = useContext(cartContex);
   const condicion = contexto.totalItemsEnCarritofn() > 0;
 
+
+  //2. rendering condicional con operadores logicos -> &&
   return (
     <div className="carrito">{<Link to="/carrito"><FontAwesomeIcon icon={faCartShopping}/></Link>}
     {
