@@ -1,12 +1,12 @@
 import productos from "../data/productos"
 
-function getItems(){
-    return new Promise ((resolve) => {
-        setTimeout(() => {
-            resolve(productos)
-        }, 1500);
-    })
-}
+// function getItems(){
+//     return new Promise ((resolve) => {
+//         setTimeout(() => {
+//             resolve(productos)
+//         }, 1500);
+//     })
+// }
 
 export function getItemsCategory(categoryID){
     return new Promise( (resolve, reject) => {

@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import {getFirestore, doc, getDoc, collection, getDocs, query, where} from "firebase/firestore";
+import {getFirestore, doc, getDoc, collection, getDocs, query, where, addDoc} from "firebase/firestore";
 
 
 const firebaseConfig = {
@@ -59,4 +59,10 @@ export async function getItemsCategory(categoryID){
 
 }
 
-    
+// export async function exportItemsToFirestore(){
+//   const productos = [];
+
+//   const collectionRef = collection(DB, "productos");
+
+//   addDoc(collectionRef, productos[0]).then( respuesta => console.log(respuesta))
+// }

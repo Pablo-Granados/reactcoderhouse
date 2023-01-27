@@ -8,8 +8,7 @@ const Provider = cartContex.Provider;
 
 function CartContexProvider(props){
 
-    const [carrito, setCarrito] = useState([])
-    let saludo = "holis desde contexto";
+    const [carrito, setCarrito] = useState([]);
 
     function agregarAlCarrito(item, count){
         let indexItemInCart = carrito.findIndex(itemInContext => itemInContext.id === item.id)
@@ -21,38 +20,43 @@ function CartContexProvider(props){
             setCarrito(newCarrito)
         } else {
         
-        // console.log("--->", isItemInCart)
-        //const newCarrito = carrito.map(item => item)
-        // const newItem = item;
-        // newItem.count = count;
-        // console.log(newItem);
-
         newCarrito.push({...item, count});
         setCarrito(newCarrito)}
-    }
-
-    // let totalItemsEnCarrito = 0;
-    // carrito.forEach(item => totalItemsEnCarrito += item.count);
+    };
 
     function totalItemsEnCarritofn(){
         let totalItemsEnCarrito = 0;
         carrito.forEach(item => totalItemsEnCarrito += item.count);
         return totalItemsEnCarrito
+    };
+
+    const borrarCarrito = () => {
+        setCarrito([]);
+    };
+
+    const removeItem = (idToRemove) => {
+        let newCart = carrito.filter((itemInCart) => itemInCart.id !== idToRemove);
+        setCarrito(newCart);
+    };
+
+    function getTotalPrice(){
+        return carrito.reduce((prev, act) => prev + act.count * act.price, 0);
     }
 
-    function removeItem(id){}
 
     
 
     return(
         <Provider value={{
             carrito,
-            saludo,
             agregarAlCarrito,
+            removeItem,
+            borrarCarrito,
+            getTotalPrice,
             // totalItemsEnCarrito,
             totalItemsEnCarritofn
             }} >
-            {console.log(carrito,saludo)}
+            {console.log(carrito)}
             {props.children} 
         </Provider>
     )
