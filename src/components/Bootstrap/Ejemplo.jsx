@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMartiniGlassCitrus, faMagnifyingGlass, faChampagneGlasses, faWineGlass, faBeerMugEmpty, faGlassWhiskey, faToggleOn } from "@fortawesome/free-solid-svg-icons";
+import { faMartiniGlassCitrus, faMagnifyingGlass, faChampagneGlasses, faWineGlass, faBeerMugEmpty, faGlassWhiskey } from "@fortawesome/free-solid-svg-icons";
 import CartWidget from '../NavBar/CartWidget'
 import { Link } from "react-router-dom";
 

@@ -13,7 +13,7 @@ import InicioAPP from './components/InicioAPP/InicioAPP';
 // inicializar contexto
 const contexto = createContext([]);
 //extraer provider
-const Provider = contexto.Provider;
+// const Provider = contexto.Provider;
 //crear value para provider
 
 

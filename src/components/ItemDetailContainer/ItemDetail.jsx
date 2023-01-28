@@ -15,7 +15,7 @@ function ItemDetail() {
   let { itemID } = useParams();
 
 
-  const {agregarAlCarrito, removeItem} = useContext(cartContex)
+  const {agregarAlCarrito} = useContext(cartContex)
 
   useEffect(() => {
     getSingleItems(itemID)
@@ -57,6 +57,4 @@ function ItemDetail() {
   </div>
   )
 }
-{/* <button onClick={() =>removeItem(producto.id)} /> */}
-
 export default ItemDetail

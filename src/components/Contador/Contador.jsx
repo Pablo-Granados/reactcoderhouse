@@ -1,7 +1,7 @@
 import Button from "../Button/Button";
 import React, { useState } from 'react';
 import "./contador.css"
-import productos from "../../data/productos";
+// import productos from "../../data/productos";
 
 
 function Contador({stock, onAddToCart}) {

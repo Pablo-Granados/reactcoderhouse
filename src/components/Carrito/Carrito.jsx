@@ -1,11 +1,11 @@
 import React, { useContext } from 'react'
-import { cartContex, CartContexProvider } from '../../storage/cartContext'
+import { cartContex } from '../../storage/cartContext'
 import Button from '../Button/Button'
 
 
 function Carrito() {
 
-  const { carrito, removeItem, getTotalPrice, borrarCarrito } = useContext(cartContex)
+  const { carrito, removeItem, getTotalPrice } = useContext(cartContex)
   return (
     <>
       <h1>Tu carrito</h1>

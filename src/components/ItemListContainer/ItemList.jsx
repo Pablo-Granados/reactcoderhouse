@@ -1,5 +1,4 @@
 import React from 'react'
-import productos from '../../data/productos'
 import Flex from '../Flex/Flex'
 import Item from './Item'
 
