@@ -2,10 +2,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping }  from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import { cartContex } from "../../storage/cartContext";
+import { cartContext } from "../../storage/cartContext";
 
 function CartWidget() {
-  const contexto = useContext(cartContex);
+  const contexto = useContext(cartContext);
   const condicion = contexto.totalItemsEnCarritofn() > 0;
 
 

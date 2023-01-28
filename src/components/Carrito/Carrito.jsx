@@ -1,11 +1,51 @@
 import React, { useContext } from 'react'
-import { cartContex } from '../../storage/cartContext'
+import { createBuyOrder } from '../../services/firebase'
+import { cartContext } from '../../storage/cartContext'
 import Button from '../Button/Button'
+import swal from 'sweetalert'
+import { useNavigate } from 'react-router-dom'
 
 
 function Carrito() {
+  let navigateTo = useNavigate()
 
-  const { carrito, removeItem, getTotalPrice } = useContext(cartContex)
+  const { carrito, getTotalPrice, removeItem } = useContext(cartContext)
+
+  function handleCheckout(){
+    const order = {
+      buyer: {
+        name: "Santiago",
+        email: "asdasdasd",
+        phone: "12123123"
+      },
+      items: carrito,
+      total: 999,
+      date: new Date(),
+    }
+
+    createBuyOrder(order).then((id)=> {
+      swal(
+        "Gracias por su compra", 
+        `se genero la orden correctamente, tu numero de ticket es: ${id}`,
+        "success"
+        );
+    });
+
+
+
+    // createBuyOrderRedirect(order).then((id)=> {
+    //   swal(
+    //     "Gracias por su compra", 
+    //     "se genero la orden correctamente",
+    //     "success"
+    //     );
+    //     navigateTo(`/thankyou/${id}`)
+    // });
+
+
+
+  }
+
   return (
     <>
       <h1>Tu carrito</h1>
@@ -32,7 +72,7 @@ function Carrito() {
                 <td>{item.price}</td>
                 <td>{item.count}</td>
                 <td>
-                  <Button color="#c63224" onClick={removeItem}> X </Button>
+                  <Button color="#c63224" onButtonTouch={removeItem}> X </Button>
                 </td>
                 <th>$ {getTotalPrice()}</th>
                 {/* <th> <Button >a{borrarCarrito}</Button> </th> */}
@@ -41,7 +81,11 @@ function Carrito() {
           })}
         </tbody>
       </table>
+
+      <div className="cartList_detail">
       <h4>El total del carrito es de $ {getTotalPrice()}</h4>
+          <Button color="3353d3" onButtonTouch={handleCheckout}>Finalizar compra</Button>
+      </div>
     </>
   )
 }

@@ -3,7 +3,7 @@ import { getSingleItems } from '../../services/firebase';
 import Contador from '../Contador/Contador';
 import { Link, useParams } from 'react-router-dom';
 import CloseButton from '../FavButton/CloseButton';
-import { cartContex } from '../../storage/cartContext';
+import { cartContext } from '../../storage/cartContext';
 
 function ItemDetail() {
 
@@ -15,7 +15,7 @@ function ItemDetail() {
   let { itemID } = useParams();
 
 
-  const {agregarAlCarrito} = useContext(cartContex)
+  const {agregarAlCarrito} = useContext(cartContext)
 
   useEffect(() => {
     getSingleItems(itemID)

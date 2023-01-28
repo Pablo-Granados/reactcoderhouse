@@ -59,6 +59,16 @@ export async function getItemsCategory(categoryID){
 
 }
 
+export async function createBuyOrder(order){
+  const collectionRef = collection(DB, "orders");
+
+  let newOrder = await addDoc(collectionRef, order);
+  console.log("Compra generada con ID: ",newOrder.id)
+
+  return newOrder.id
+}
+
+
 // export async function exportItemsToFirestore(){
 //   const productos = [];
 

@@ -1,28 +1,46 @@
 import React, { useState, createContext} from 'react';
 
 //1- inicializar contexto
-const cartContex = createContext({ carrito: []});
+const cartContext = createContext({ carrito: []});
 //2- extraer provider
-const Provider = cartContex.Provider;
+const Provider = cartContext.Provider;
 //3- crear value para provider
 
 function CartContexProvider(props){
 
     const [carrito, setCarrito] = useState([]);
 
-    function agregarAlCarrito(item, count){
-        let indexItemInCart = carrito.findIndex(itemInContext => itemInContext.id === item.id)
-        let isItemInCart = indexItemInCart !== -1;
-        const newCarrito = [...carrito];
+    function estaEnCarrito(id) {
+        carrito.find((item) => item.id === id)
+    }
 
-        if (isItemInCart){
-            newCarrito[indexItemInCart].count += count
-            setCarrito(newCarrito)
+
+    function agregarAlCarrito(item, count) {
+        if (estaEnCarrito(item.id)) {
+            setCarrito(
+                carrito.map((producto) => {
+                    return producto.id === item.id
+                    ? {...producto, count: (producto.count += count)}
+                    : producto;
+                } ));
         } else {
+            setCarrito([...carrito, {...item, count}])
+        }
+    }
+
+    // function agregarAlCarrito(item, count){
+    //     let indexItemInCart = carrito.findIndex(itemInContext => itemInContext.id === item.id)
+    //     let isItemInCart = indexItemInCart !== -1;
+    //     const newCarrito = [...carrito];
+
+    //     if (isItemInCart){
+    //         newCarrito[indexItemInCart].count += count
+    //         setCarrito(newCarrito)
+    //     } else {
         
-        newCarrito.push({...item, count});
-        setCarrito(newCarrito)}
-    };
+    //     newCarrito.push({...item, count});
+    //     setCarrito(newCarrito)}
+    // };
 
     function totalItemsEnCarritofn(){
         let totalItemsEnCarrito = 0;
@@ -30,11 +48,11 @@ function CartContexProvider(props){
         return totalItemsEnCarrito
     };
 
-    const borrarCarrito = () => {
+    function borrarCarrito(){
         setCarrito([]);
     };
 
-    const removeItem = (idToRemove) => {
+    function removeItem(idToRemove) {
         let newCart = carrito.filter((itemInCart) => itemInCart.id !== idToRemove);
         setCarrito(newCart);
     };
@@ -62,6 +80,6 @@ function CartContexProvider(props){
     )
 }
 
-export {cartContex, CartContexProvider}
+export {cartContext, CartContexProvider}
 
 //4- nos conectamos al contecto
