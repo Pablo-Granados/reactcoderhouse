@@ -1,11 +1,11 @@
 .btn {
-    padding: 0.5em 1.5em;
+    padding: 0.5em 0.5em;
     color: whitesmoke !important;
-    max-width: 15em;
-    background-color: #1b71c8;
+    background-color: #1b71c8 !important;
     border-radius: 0.4em;
     border: none;
-    margin: 0.5em 1.5em;
     cursor: pointer;
     font-weight: 600 !important;
+    margin: 1rem;
 }
+

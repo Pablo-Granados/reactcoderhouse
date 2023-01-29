@@ -4,6 +4,9 @@ import Contador from '../Contador/Contador';
 import { Link, useParams } from 'react-router-dom';
 import CloseButton from '../FavButton/CloseButton';
 import { cartContext } from '../../storage/cartContext';
+import Button from '../Button/Button';
+import swal from 'sweetalert'
+
 
 function ItemDetail() {
 
@@ -29,6 +32,11 @@ function ItemDetail() {
   function handleAddToCart(count){
     setCountInCart(count);
     agregarAlCarrito(producto, count);
+    swal(
+      "Agregado al carrito",
+      `Agregaste: ${count} unidad/es de "${producto.title}" al carrito."`,
+      "success"
+    );
     console.log("Agregaste: ", count, "unidad/es de ", producto.title, " al carrito.")
   }
 
@@ -46,9 +54,13 @@ function ItemDetail() {
       <h4 className="priceTag">$ {producto.price}</h4>
       <p>{producto.description}</p>
     </div>
+    <Link to="/">
+      <Button className="btn" >Sigue comprando</Button> 
+      </Link>
     {
       CountInCart?
-      <Link to="/carrito">Ir al carrito</Link>
+      <Link to="/carrito">
+        <Button className="btn">Ir al carrito</Button> </Link>
       :
       <Contador stock={producto.stock} onAddToCart={handleAddToCart}> </Contador>
     }

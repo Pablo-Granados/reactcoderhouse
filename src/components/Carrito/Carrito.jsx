@@ -9,9 +9,14 @@ import { useNavigate } from 'react-router-dom'
 function Carrito() {
   let navigateTo = useNavigate()
 
-  const { carrito, getTotalPrice, removeItem } = useContext(cartContext)
+  const { carrito, getTotalPrice, borrarCarrito } = useContext(cartContext)
+  const {removeItem} = useContext(cartContext)
 
-  function handleCheckout(){
+  function handleRemoveItem(itemID){
+    removeItem(itemID)
+  }
+
+  function handleCheckout() {
     const order = {
       buyer: {
         name: "Santiago",
@@ -23,12 +28,13 @@ function Carrito() {
       date: new Date(),
     }
 
-    createBuyOrder(order).then((id)=> {
+    createBuyOrder(order).then((id) => {
       swal(
-        "Gracias por su compra", 
+        "Gracias por su compra",
         `se genero la orden correctamente, tu numero de ticket es: ${id}`,
         "success"
-        );
+      );
+      borrarCarrito();
     });
 
 
@@ -72,7 +78,7 @@ function Carrito() {
                 <td>{item.price}</td>
                 <td>{item.count}</td>
                 <td>
-                  <Button color="#c63224" onButtonTouch={removeItem}> X </Button>
+                  <button color="#c63224" className="btn" onClick={() => handleRemoveItem(item.id)}> X </button>
                 </td>
                 <th>$ {getTotalPrice()}</th>
                 {/* <th> <Button >a{borrarCarrito}</Button> </th> */}
@@ -83,8 +89,9 @@ function Carrito() {
       </table>
 
       <div className="cartList_detail">
-      <h4>El total del carrito es de $ {getTotalPrice()}</h4>
-          <Button color="3353d3" onButtonTouch={handleCheckout}>Finalizar compra</Button>
+        <h4>El total del carrito es de $ {getTotalPrice()}</h4>
+        <Button onButtonTouch={borrarCarrito}>Borrar Carrito</Button>
+        <Button color="3353d3" onButtonTouch={handleCheckout}>Finalizar compra</Button>
       </div>
     </>
   )
