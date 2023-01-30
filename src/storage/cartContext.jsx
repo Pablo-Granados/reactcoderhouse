@@ -10,10 +10,6 @@ function CartContexProvider(props) {
 
     const [carrito, setCarrito] = useState([]);
 
-    const carritoLong = () => {
-        return carrito.length;
-    }
-
     // function estaEnCarrito(id) {
     //     carrito.find((item) => item.id === id)
     // }
@@ -114,5 +110,3 @@ function CartContexProvider(props) {
 }
 
 export { cartContext, CartContexProvider }
-
-//4- nos conectamos al contecto

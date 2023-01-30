@@ -7,6 +7,7 @@ import { createContext } from 'react';
 import Contacto from './components/pages/Contacto';
 import { CartContexProvider } from './storage/cartContext';
 import InicioAPP from './components/InicioAPP/InicioAPP';
+import ThankYou from './components/Thankyou/ThankYou';
 
 
 
@@ -33,6 +34,10 @@ function App() {
             <Route path="/item/:itemID" element={<ItemDetailContainer />}></Route>
             <Route path="/contacto" element={<Contacto />}></Route>
             <Route path="/carrito" element={<Carrito />}></Route>
+            <Route path="/thankyou/:orderID" element={<ThankYou />}></Route>
+            <Route path="*" element={<h1>404 recurso no encontrado</h1>}></Route>
+
+
 
           </Routes>
           {/*Soy un comentario de JSX

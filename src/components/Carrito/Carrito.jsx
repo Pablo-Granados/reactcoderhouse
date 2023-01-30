@@ -28,29 +28,29 @@ function Carrito() {
       date: new Date(),
     }
 
-    createBuyOrder(order).then((id) => {
-      swal(
-        "Gracias por su compra",
-        `se genero la orden correctamente, tu numero de ticket es: ${id}`,
-        "success"
-      );
-      borrarCarrito();
-    });
-
-
-
-    // createBuyOrderRedirect(order).then((id)=> {
+    // createBuyOrder(order).then((id) => {
     //   swal(
-    //     "Gracias por su compra", 
-    //     "se genero la orden correctamente",
+    //     "Gracias por su compra",
+    //     `se genero la orden correctamente, tu numero de ticket es: ${id}`,
     //     "success"
-    //     );
-    //     navigateTo(`/thankyou/${id}`)
+    //   );
+    //   borrarCarrito();
     // });
 
 
 
+    createBuyOrder(order).then((id)=> {
+      swal(
+        "Gracias por su compra", 
+        `se genero la orden correctamente, tu numero de ticket es: ${id}`,
+        "success"
+        );
+        borrarCarrito()
+        navigateTo(`/thankyou/${id}`)
+
+    });
   }
+
 
   return (
     <>
