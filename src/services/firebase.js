@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import {getFirestore, doc, getDoc, collection, getDocs, query, where, addDoc} from "firebase/firestore";
+import {getFirestore, doc, getDoc, collection, getDocs, query, where, addDoc, documentId, writeBatch} from "firebase/firestore";
 
 
 const firebaseConfig = {
@@ -63,16 +63,33 @@ export async function createBuyOrder(order){
   const collectionRef = collection(DB, "orders");
 
   let newOrder = await addDoc(collectionRef, order);
-  console.log("Compra generada con ID: ",newOrder.id)
-
   return newOrder.id
 }
 
+export async function createBuyOrder_WithStockControl(order) {
+  const collectionRef = collection(DB, "orders");
+  const collectionProductsRef = collection(DB, "productos");
 
-// export async function exportItemsToFirestore(){
-//   const productos = [];
+  let batch = writeBatch(DB);
 
-//   const collectionRef = collection(DB, "productos");
+  let arrayIds = order.items.map((itemInCart) => itemInCart.id);
+  const q = query(collectionProductsRef, where(documentId(), "in", arrayIds));
+  let snapshot = await getDocs(q);
 
-//   addDoc(collectionRef, productos[0]).then( respuesta => console.log(respuesta))
-// }
+  snapshot.docs.forEach((doc) => {
+    let stockDispoible = doc.data().stock;
+
+    let ItemInCart = order.items.find((item) => item.id === doc.id);
+    let countItemInCart = ItemInCart.count;
+
+    if (stockDispoible < countItemInCart)
+      throw new Error(
+        `Stock no disponible para el producto para el producto ${doc.id}`
+      );
+    else batch.update(doc.ref, { stock: stockDispoible - countItemInCart });
+  });
+
+  await batch.commit();
+  let newOrder = await addDoc(collectionRef, order);
+  return newOrder.id;
+}

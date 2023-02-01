@@ -10,6 +10,8 @@ function CartContexProvider(props) {
 
     const [carrito, setCarrito] = useState([]);
 
+    
+
     // function estaEnCarrito(id) {
     //     carrito.find((item) => item.id === id)
     // }
@@ -18,12 +20,19 @@ function CartContexProvider(props) {
         let indexItemInCart = carrito.findIndex(
             (itemInContext) => itemInContext.id === item.id
         );
+        let isItemInCart = indexItemInCart !== -1;
         const newCarrito = [...carrito];
-        indexItemInCart !== -1
-            ? (newCarrito[indexItemInCart].count += count)
-            : newCarrito.push({ ...item, count: count });
+
+        if (isItemInCart) {
+            newCarrito[indexItemInCart].count += count;
+            // newCarrito.push({ ...item, count: count });
         setCarrito(newCarrito);
-    };
+    } else {
+        newCarrito.push({...item, count: count});
+        setCarrito(newCarrito)
+
+    }
+    }
 
     function borrarCarrito() {
         setCarrito([]);

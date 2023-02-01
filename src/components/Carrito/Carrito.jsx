@@ -1,16 +1,19 @@
 import React, { useContext } from 'react'
-import { createBuyOrder } from '../../services/firebase'
+import { createBuyOrder, createBuyOrder_WithStockControl } from '../../services/firebase'
 import { cartContext } from '../../storage/cartContext'
 import Button from '../Button/Button'
 import swal from 'sweetalert'
 import { useNavigate } from 'react-router-dom'
-
+import { useState } from 'react'
+import Loader from "../Loader/Loader";
 
 function Carrito() {
   let navigateTo = useNavigate()
 
   const { carrito, getTotalPrice, borrarCarrito } = useContext(cartContext)
   const {removeItem} = useContext(cartContext)
+  const [orderId, setOrderId] = useState(false)
+
 
   function handleRemoveItem(itemID){
     removeItem(itemID)
@@ -39,7 +42,9 @@ function Carrito() {
 
 
 
-    createBuyOrder(order).then((id)=> {
+    createBuyOrder_WithStockControl(order).then((id)=> {
+      setOrderId(id)
+    {<Loader />}
       swal(
         "Gracias por su compra", 
         `se genero la orden correctamente, tu numero de ticket es: ${id}`,
@@ -47,7 +52,7 @@ function Carrito() {
         );
         borrarCarrito()
         navigateTo(`/thankyou/${id}`)
-
+        
     });
   }
 

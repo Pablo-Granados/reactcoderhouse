@@ -40,6 +40,7 @@ function ItemDetail() {
     console.log("Agregaste: ", count, "unidad/es de ", producto.title, " al carrito.")
   }
 
+  
   return (
     <div className="card-detail_main">
     <CloseButton />

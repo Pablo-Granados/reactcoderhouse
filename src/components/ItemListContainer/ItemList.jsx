@@ -3,6 +3,9 @@ import Flex from '../Flex/Flex'
 import Item from './Item'
 
 function ItemList(props) {
+    if (props.productos.length === 0) {
+        return <div>No hay productos disponibles en esta categoría.</div>;
+      } else
     
   return (
     <Flex className="tarjetas">
