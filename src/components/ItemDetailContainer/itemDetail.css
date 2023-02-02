@@ -35,3 +35,14 @@
   .card-detail_muted{
     color: #8c8c8e
   }
+
+  .btn-sigue-comprando{
+    padding: 0.5em 0.5em;
+    color: whitesmoke !important;
+    background-color: #b8b8b8 !important;
+    border-radius: 0.4em;
+    border: none;
+    cursor: pointer;
+    font-weight: 600 !important;
+    margin: 1rem;
+}

@@ -56,7 +56,7 @@ function ItemDetail() {
       <p>{producto.description}</p>
     </div>
     <Link to="/">
-      <Button className="btn" >Sigue comprando</Button> 
+      <Button className="btn-sigue-comprando" >Sigue comprando</Button> 
       </Link>
     {
       CountInCart?
