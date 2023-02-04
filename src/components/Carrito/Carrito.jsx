@@ -2,10 +2,13 @@ import React, { useContext } from 'react'
 import {createBuyOrder_WithStockControl } from '../../services/firebase'
 import { cartContext } from '../../storage/cartContext'
 import Button from '../Button/Button'
+import "./carrito.css"
 import swal from 'sweetalert'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import Checkout from './Checkout'
+
+
 
 function Carrito() {
   let navigateTo = useNavigate()
@@ -76,7 +79,7 @@ function Carrito() {
                 <td>{item.price}</td>
                 <td>{item.count}</td>
                 <td>
-                  <button color="#c63224" className="btn" onClick={() => handleRemoveItem(item.id)}> X </button>
+                  <button color="#c63224" className="btn btn-remove" onClick={() => handleRemoveItem(item.id)}> X </button>
                 </td>
                 <th>$ {getTotalPrice()}</th>
                 {/* <th> <Button >a{borrarCarrito}</Button> </th> */}
@@ -88,8 +91,8 @@ function Carrito() {
 
       <div className="cartList_detail">
         <h4>El total del carrito es de $ {getTotalPrice()}</h4>
-        <Button onButtonTouch={borrarCarrito}>Borrar Carrito</Button>
-        <Checkout onCheckout={handleCheckout} />
+        <Button onButtonTouch={borrarCarrito} className="btn">Borrar Carrito</Button>
+        <Checkout onCheckout={handleCheckout} className="btn"/>
         {/* <Button color="3353d3" onButtonTouch={handleCheckout}>Finalizar compra</Button> */}
       </div>
     </>

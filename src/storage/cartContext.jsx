@@ -1,7 +1,7 @@
 import React, { useState, createContext } from 'react';
 
 //1- inicializar contexto
-const cartContext = createContext([]);
+const cartContext = createContext({ carrito: []});
 //2- extraer provider
 const Provider = cartContext.Provider;
 //3- crear value para provider
@@ -9,12 +9,6 @@ const Provider = cartContext.Provider;
 function CartContexProvider(props) {
 
     const [carrito, setCarrito] = useState([]);
-
-    
-
-    // function estaEnCarrito(id) {
-    //     carrito.find((item) => item.id === id)
-    // }
 
     function agregarAlCarrito(item, count) {
         let indexItemInCart = carrito.findIndex(
@@ -25,14 +19,21 @@ function CartContexProvider(props) {
 
         if (isItemInCart) {
             newCarrito[indexItemInCart].count += count;
-            // newCarrito.push({ ...item, count: count });
         setCarrito(newCarrito);
     } else {
         newCarrito.push({...item, count: count});
         setCarrito(newCarrito)
+    }
+    }
 
-    }
-    }
+    let totalItemsEnCarrito = 0;
+    carrito.forEach((item) => (totalItemsEnCarrito += item.count));
+
+    function totalItemsEnCarritofn() {
+        let totalItemsEnCarrito = 0;
+        carrito.forEach(item => totalItemsEnCarrito += item.count);
+        return totalItemsEnCarrito
+    };
 
     function borrarCarrito() {
         setCarrito([]);
@@ -47,57 +48,18 @@ function CartContexProvider(props) {
         setCarrito(newCarrito)
     }
 
-
-    // function agregarAlCarrito(item, count) {
-
-    //     if (estaEnCarrito(item.id)) {
-    //         setCarrito(
-    //             carrito.map((producto) => {
-    //                 return producto.id === item.id
-    //                 ? {...producto, count: (producto.count += count)}
-    //                 : producto;
-    //             } ));
-    //     } else {
-    //         setCarrito([...carrito, {...item, count}])
-    //     }
-    // }
-
-    // function agregarAlCarrito(item, count){
-    //     let indexItemInCart = carrito.findIndex(itemInContext => itemInContext.id === item.id)
-    //     let isItemInCart = indexItemInCart !== -1;
-    //     const newCarrito = [...carrito];
-
-    //     if (isItemInCart){
-    //         newCarrito[indexItemInCart].count += count
-    //         setCarrito(newCarrito)
-    //     } else {
-
-    //     newCarrito.push({...item, count});
-    //     setCarrito(newCarrito)}
-    // };
-
-    function totalItemsEnCarritofn() {
-        let totalItemsEnCarrito = 0;
-        carrito.forEach(item => totalItemsEnCarrito += item.count);
-        return totalItemsEnCarrito
-    };
-
-    // function borrarCarrito(){
-    //     setCarrito([]);
-    // };
-
-    // function removeItem(idToRemove){
-    //     const carritoFiltrado = carrito.filter(function (item){
-    //         return item.id !== idToRemove;
-    //     });
-    //     borrarCarrito();
-    //     const newCarrito = carritoFiltrado;
-    //     setCarrito(newCarrito)
-    // };
-
     function getTotalPrice() {
         return carrito.reduce((prev, act) => prev + act.count * act.price, 0);
     }
+
+    function getItemFromCart(id) {
+        return carrito.find((item) => item.id === id);
+      }
+    
+    function getItemCountfromCart(id) {
+        let itemInCart = carrito.find((item) => item.id === id);
+        return itemInCart?.count;
+      }
 
 
 
@@ -110,7 +72,8 @@ function CartContexProvider(props) {
             borrarCarrito,
             getTotalPrice,
             // totalItemsEnCarrito,
-            totalItemsEnCarritofn
+            totalItemsEnCarritofn,
+            getItemCountfromCart
         }} >
             {console.log(carrito)}
             {props.children}
